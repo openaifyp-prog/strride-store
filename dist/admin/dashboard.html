@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard - Strride Admin</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" crossorigin href="../assets/admin-IQ0KnreT.css">
+</head>
+<body>
+  <div class="admin-container">
+    <aside class="sidebar">
+      <div class="logo white">STRRIDE</div>
+      <nav class="sidebar-nav">
+        <a href="#" class="active">Products</a>
+        <a href="../index.html" target="_blank">View Store</a>
+        <a href="#" id="logout-btn">Logout</a>
+      </nav>
+    </aside>
+    
+    <main class="main-content">
+      <header class="header">
+        <h1>Product Management</h1>
+        <button id="add-product-btn" class="btn-primary">+ Add New Product</button>
+      </header>
+      
+      <div class="products-table-container">
+        <table class="products-table">
+          <thead>
+            <tr>
+              <th>Image</th>
+              <th>Name</th>
+              <th>Category</th>
+              <th>Price</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="products-table-body">
+            <!-- Rows injected via JS -->
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add Product Modal -->
+  <div class="modal" id="product-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Add New Product</h2>
+        <button class="close-modal">&times;</button>
+      </div>
+      <form id="add-product-form">
+        <div class="form-group">
+          <label for="p-name">Product Name</label>
+          <input type="text" id="p-name" required>
+        </div>
+        <div class="form-group">
+          <label for="p-price">Price (e.g. $45)</label>
+          <input type="text" id="p-price" required>
+        </div>
+        <div class="form-group">
+          <label for="p-category">Category</label>
+          <select id="p-category" required style="width: 100%; padding: 0.875rem; border: 1px solid var(--border-color); background-color: #fafafa; font-family: inherit;">
+            <option value="Men">Men</option>
+            <option value="Women">Women</option>
+            <option value="Accessories">Accessories</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="p-image">Image URL</label>
+          <input type="url" id="p-image" required placeholder="https://...">
+        </div>
+        <button type="submit" class="btn-primary full-width">Add Product</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
