@@ -1,4 +1,8 @@
 /* Base styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 :root {
   font-family: 'Inter', sans-serif;
   --font-heading: 'Outfit', sans-serif;
@@ -9,13 +13,25 @@
   --spacing-lg: 3rem;
 }
 
-body {
+html, body {
   margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; /* Force hide horizontal scroll */
+}
+
+body {
   min-width: 320px;
   min-height: 100vh;
   background-color: var(--bg-color);
   color: var(--text-color);
-  overflow-x: hidden;
+  font-family: 'Inter', sans-serif; /* Moved from :root or ensure inheritance */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
 }
 
 /* Navbar */
@@ -205,9 +221,9 @@ body {
   letter-spacing: -0.02em;
 }
 
-.hero-subtitle {
+  .hero-subtitle {
   font-size: 1.125rem;
-  color: #555;
+  color: #333333; /* Darker than #555 for AA contrast */
   margin-bottom: 2.5rem;
   line-height: 1.6;
   max-width: 450px;
@@ -367,7 +383,7 @@ body {
   font-weight: 600;
   font-size: 1rem;
   margin: 0;
-  color: #555;
+  color: #333333; /* Darker for accessibility */
 }
 
 /* Desktop Entrance Animations */
@@ -458,8 +474,8 @@ body {
     padding: var(--spacing-md);
   }
 
-  .product-grid {
-    grid-template-columns: repeat(2, 1fr); /* Force 2 columns on mobile */
+   .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 1rem;
   }
   

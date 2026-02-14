@@ -1,4 +1,10 @@
+/* Global Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
 :root {
+  /* ... (keep existing vars) ... */
   --font-body: 'Inter', sans-serif;
   --font-heading: 'Outfit', sans-serif;
   --bg-color: #f9f9f9;
@@ -11,6 +17,8 @@
   --success-color: #4CAF50;
   --danger-color: #d32f2f;
 }
+
+/* Mobile Responsive Admin - Moved to bottom */
 
 body {
   margin: 0;
@@ -307,4 +315,71 @@ body {
 
 .close-modal:hover {
   color: var(--primary-color);
+}
+
+/* Mobile Responsive Admin (Correctly placed at end) */
+@media (max-width: 768px) {
+  .admin-login-body {
+    padding: 1rem;
+    align-items: flex-start;
+    padding-top: 20vh;
+  }
+  
+  .login-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .admin-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    padding: 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .sidebar-nav {
+    margin-top: 0;
+    flex-direction: row;
+    gap: 1.5rem;
+  }
+  
+  .sidebar-nav a {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+
+  .main-content {
+    padding: 1.5rem;
+  }
+
+  .header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+  
+  .header h1 {
+    font-size: 1.75rem;
+  }
+  
+  .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* Table responsive wrapper */
+  .products-table-container {
+    overflow-x: auto;
+  }
+  
+  .products-table th, 
+  .products-table td {
+    padding: 1rem;
+    white-space: nowrap; /* Prevent ugly wrapping */
+  }
 }
